@@ -1,6 +1,10 @@
-# Our stuff
-visiogram
+*.sublime-project
+*.sublime-workspace
 
+# OS stuff
+.DS_Store
+
+# python 
 *.py[cod]
 
 # C extensions
