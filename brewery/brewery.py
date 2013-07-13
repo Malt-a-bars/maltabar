@@ -1,4 +1,4 @@
-import ljtemp
+from LJTemp import ljtemp, probes
 
 
 class Brewery:
@@ -6,9 +6,9 @@ class Brewery:
     def __init__(self):
         # LJTemp
         self.ljt = ljtemp.LJTemp()
-        self.ljt.connect()
-        probe = ljtemp.Probe(name='R0', kind='RTD', model='pt1000', plus_input='AIN0',
-                             minus_input='GND')
+        #self.ljt.connect()
+        probe = probes.TemperatureProbe(name='R0', kind='RTD', model='pt1000',
+                                        plus_input='AIN0', minus_input='GND')
         self.ljt.add_probe(probe)
 
     def temperatures(self):

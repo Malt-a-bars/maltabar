@@ -7,53 +7,73 @@ Sam Grimee
 Drink responsibly.
 """
 
-from flask import Flask, jsonify
+from brewery import mock_brewery as brewery
+
+import redis
+import flask
+import json
 from werkzeug.exceptions import default_exceptions
 from werkzeug.exceptions import HTTPException
-
-__all__ = ['make_json_app']
 
 # configuration
 DEBUG = True
 API = '/api/v1'
 
 
-# create application
-def make_json_app(import_name, **kwargs):
-    """
-    Creates a JSON-oriented Flask app.
+class BreweryApp(flask.Flask):
+    def __init__(self, import_name):
+        super(BreweryApp, self).__init__(import_name)
 
-    All error responses that you don't specifically
-    manage yourself will have application/json content
-    type, and will contain JSON like this (just an example):
+        # Make error handlers return json
+        for code in default_exceptions.iterkeys():
+            self.error_handler_spec[None][code] = self.make_json_error
 
-    { "message": "405: Method Not Allowed" }
-    """
-    def make_json_error(ex):
-        response = jsonify(message=str(ex))
-        response.status_code = (ex.code
-                                if isinstance(ex, HTTPException)
-                                else 500)
-        return response
+        self.red = redis.StrictRedis()
 
-    app = Flask(import_name, **kwargs)
+        # Initialise brewery
+        self.brewery = brewery.Brewery()
 
-    for code in default_exceptions.iterkeys():
-        app.error_handler_spec[None][code] = make_json_error
+        self.route(API+"/probes")(self.all_probes)
+        self.route(API+"/stream")(self.stream)
+        self.route(API+"/stream/update")(self.stream_update)
+        self.route('/ui/<path:path>')(self.static_from_root)
 
-    return app
+    def all_probes(self):
+        probes = self.brewery.temperatures()
+        return flask.jsonify(probes=probes)
 
-app = make_json_app(__name__)
-app.config.from_object(__name__)
-#app.config.from_envvar('FLASKR_SETTINGS', silent=True)
+    def make_json_error(self, ex):
+            """ Handler that returns errors as json objects """
+            response = flask.jsonify(message=str(ex))
+            response.status_code = (ex.code if isinstance(ex, HTTPException)
+                                    else 500)
+            return response
+
+    def event_stream(self):
+        pubsub = self.red.pubsub()
+        pubsub.subscribe('temperatures')
+
+        # TODO: handle client disconnection.
+        for message in pubsub.listen():
+            print message
+            yield 'data: %s\n\n' % message['data']
+
+    def stream(self):
+        return flask.Response(self.event_stream(),
+                              mimetype="text/event-stream")
+
+    def stream_update(self):
+        probes = self.brewery.temperatures()
+        self.red.publish('temperatures', json.dumps(probes))
+
+    def static_from_root(self, path):
+        print "path: {0}".format(path)
+        return flask.send_from_directory('../ui/dist', path)
 
 
-@app.route(API + '/probes')
-def all_probes():
-    probes = [{'name': 'temp1',
-               'value': 22.1,
-               'unit': 'celsius'}]
-    return jsonify(probes=probes)
+app = BreweryApp(__name__)
+
 
 if __name__ == '__main__':
-    app.run()
+    app.debug = True
+    app.run(threaded=True)

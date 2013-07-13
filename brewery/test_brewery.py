@@ -5,7 +5,7 @@ import types
 class TestBrewery(unittest.TestCase):
 
     def setUp(self):
-        import brewery
+        import mock_brewery as brewery
         self.brewery = brewery.Brewery()
 
     def tearDown(self):
