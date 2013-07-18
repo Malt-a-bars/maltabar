@@ -152,6 +152,11 @@ module.exports = function (grunt) {
         relativeAssets: false
       },
       dist: {},
+      dev: {
+        options: {
+          cssDir: '<%= yeoman.dist %>/styles'
+        }
+      },
       server: {
         options: {
           debugInfo: true
@@ -255,6 +260,24 @@ module.exports = function (grunt) {
             'generated/*'
           ]
         }]
+      },
+      dev: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
+          src: [
+            '*.{ico,png,txt,html}',
+            '.htaccess',
+            'font/*',
+            'scripts/**/*',
+            'views/**/*',
+            'bower_components/**/*',
+            'images/{,*/}*.{gif,webp,svg}',
+            'styles/fonts/*'
+          ]
+        }]
       }
     },
     concurrent: {
@@ -344,5 +367,21 @@ module.exports = function (grunt) {
     'jshint',
     'test',
     'build'
+  ]);
+
+  grunt.registerTask('dev', [
+    //'jshint',
+    'clean:dist',
+    //'useminPrepare',
+    //'concurrent:dist',
+    //'concat',
+    'compass:dev',
+    'copy:dev'
+    //'cdnify',
+    //'ngmin',
+    //'cssmin',
+    //'uglify',
+    //'rev',
+    //'usemin'
   ]);
 };
