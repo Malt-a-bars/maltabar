@@ -25,26 +25,40 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
+
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
+    <!-- <script>
       var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
       g.src='//www.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
+    </script> -->
+
+
+
 
     <script src="bower_components/angular/angular.js"></script>
+
+    <!-- jquery before all custom scripts using it, eg highcharts -->
+    <script src="bower_components/jquery/jquery.js"></script>
+
+    <!-- highcharts before angular-highcharts-directive -->
+    <script src="bower_components/highcharts/highcharts.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <!-- endbuild -->
 
+    <!-- angular-highcharts-directive after controller, as it re-uses the ui.app module. Fixme! -->
+    <script src="bower_components/angular-highcharts-directive/src/directives/highchart.js"></script>
+
+
         <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/jquery/jquery.js"></script>
+
         <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
         <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
