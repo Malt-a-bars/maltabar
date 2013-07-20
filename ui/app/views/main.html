@@ -1,12 +1,23 @@
-
 <p>Probes:</p>
 <ul>
     <li ng-repeat="probe in probes">
         <p>Name: {{probe.name}}, temperature: {{probe.temperature | number:1}}</p>
+        <wij-lineargauge value="{{probe.temperature}}" min="0" max="100">
+        </wij-lineargauge>
     </li>
 </ul>
 
-<div>
-    <high-chart value='example_chart' type="area" height="400">
-    </high-chart>
-</div>
+
+
+<p>Bar:</p>
+<wij-barchart dataSource="probes">
+    <header text="Probes"></header>
+    <series-list>
+        <series label="Temperature">
+            <data>
+                <x bind="name" ></x>
+                <y bind="temperature"></y>
+            </data>
+        </series>
+    </series-list>
+</wij-barchart>

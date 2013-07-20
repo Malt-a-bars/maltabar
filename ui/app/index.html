@@ -38,24 +38,31 @@
     </script> -->
 
 
+    <!-- jquery before all custom scripts  -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
 
-
+    <!-- angular after jquery -->
     <script src="bower_components/angular/angular.js"></script>
 
-    <!-- jquery before all custom scripts using it, eg highcharts -->
-    <script src="bower_components/jquery/jquery.js"></script>
+    <!-- wijmo angular directive -->
+    <script src="http://cdn.wijmo.com/interop/angular.wijmo.3.20132.8.js" type="text/javascript"></script
 
-    <!-- highcharts before angular-highcharts-directive -->
-    <script src="bower_components/highcharts/highcharts.js"></script>
+    <!--Wijmo Theme-->
+    <link href="http://cdn.wijmo.com/themes/aristo/jquery-wijmo.css" rel="stylesheet" type="text/css" />
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <!-- endbuild -->
+    <!--Wijmo Widgets CSS-->
+    <link href="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20132.8.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- angular-highcharts-directive after controller, as it re-uses the ui.app module. Fixme! -->
-    <script src="bower_components/angular-highcharts-directive/src/directives/highchart.js"></script>
+    <!--Wijmo Widgets JavaScript-->
+    <script src="http://cdn.wijmo.com/jquery.wijmo-open.all.3.20132.8.min.js" type="text/javascript"></script>
+    <script src="http://cdn.wijmo.com/jquery.wijmo-pro.all.3.20132.8.min.js" type="text/javascript"></script>
 
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/mainCtrl.js"></script>
+        <!-- endbuild -->
 
         <!-- build:js scripts/plugins.js -->
 
