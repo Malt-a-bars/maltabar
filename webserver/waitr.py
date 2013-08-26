@@ -37,6 +37,7 @@ class BreweryApp(flask.Flask):
         self.route(API+"/stream")(self.stream)
         self.route(API+"/stream/update")(self.stream_update)
         self.route('/ui/<path:path>')(self.static_from_root)
+        self.route('/')(self.redirect_to_ui)
 
     def all_probes(self):
         probes = self.brewery.temperatures()
@@ -55,8 +56,12 @@ class BreweryApp(flask.Flask):
 
         # TODO: handle client disconnection.
         for message in pubsub.listen():
-            print message
-            yield 'data: %s\n\n' % message['data']
+            print "Message: {0}".format(message)
+            if message['type'] != 'message':
+                continue
+            data = json.dumps({message['channel']: json.loads(message['data'])})
+            print "yielding data: {0}".format(data)
+            yield "data: {0}\n\n".format(data)
 
     def stream(self):
         return flask.Response(self.event_stream(),
@@ -65,11 +70,15 @@ class BreweryApp(flask.Flask):
     def stream_update(self):
         probes = self.brewery.temperatures()
         self.red.publish('temperatures', json.dumps(probes))
+        return 'Stream updated'
+
 
     def static_from_root(self, path):
         print "path: {0}".format(path)
         return flask.send_from_directory('../ui/dist', path)
 
+    def redirect_to_ui(self):
+        return flask.redirect('/ui/index.html')
 
 app = BreweryApp(__name__)
 

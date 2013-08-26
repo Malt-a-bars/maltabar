@@ -1,23 +1,8 @@
-<p>Probes:</p>
+<p>My Probes:</p>
 <ul>
-    <li ng-repeat="probe in probes">
+    <li ng-repeat="probe in model.temperatures">
         <p>Name: {{probe.name}}, temperature: {{probe.temperature | number:1}}</p>
-        <wij-lineargauge value="{{probe.temperature}}" min="0" max="100">
-        </wij-lineargauge>
+        <wij-radialgauge value="{{probe.temperature}}" min="0" max="100">
+        </wij-radialgauge>
     </li>
 </ul>
-
-
-
-<p>Bar:</p>
-<wij-barchart dataSource="probes">
-    <header text="Probes"></header>
-    <series-list>
-        <series label="Temperature">
-            <data>
-                <x bind="name" ></x>
-                <y bind="temperature"></y>
-            </data>
-        </series>
-    </series-list>
-</wij-barchart>

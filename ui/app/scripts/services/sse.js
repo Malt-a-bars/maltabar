@@ -1,19 +1,28 @@
-// // define the module we're working with
-// var app = angular.module('sse', []);
+// jshint indent:4
+'use strict';
 
-// // define the ctrl
-// function statCtrl($scope) {
+angular.module('maltabar', [], function($provide) {
+    $provide.factory('sse', [ '$rootScope', function($rootScope) {
 
-//     // the last received msg
-//     $scope.msg = {};
+        var model;
 
-//     // handles the callback from the received event
-//     var handleCallback = function (msg) {
-//         $scope.$apply(function () {
-//             $scope.msg = JSON.parse(msg.data)
-//         });
-//     }
+        // handles the callback from the received event
+        var handleCallback = function (msg) {
+            $rootScope.$apply(function () {
+                console.log('model before: ', model);
+                console.log('msg.data: ', msg.data);
+                var update = JSON.parse(msg.data);
+                model = update;
+                console.log('model after:', model);
+            });
+        };
 
-//     var source = new EventSource('/stats');
-//     source.addEventListener('message', handleCallback, false);
-// }
+        return function(url, modelToUpdate) {
+            model = modelToUpdate;
+            var source = new EventSource(url);
+            source.addEventListener('message', handleCallback, false);
+
+        }
+
+    }]);
+});
