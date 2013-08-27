@@ -26,5 +26,5 @@ class Brewery:
 
     def temperature_of_probe(self, probe):
         """ Return random temperatures """
-        probe._mock_temp += random.random() - 2.5
+        probe._mock_temp += random.random()  * 5- 2.5
         return probe._mock_temp

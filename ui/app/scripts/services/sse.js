@@ -1,28 +1,16 @@
-// jshint indent:4
-'use strict';
+// jshint indent:2
+n'use strict';
 
-angular.module('maltabar', [], function($provide) {
-    $provide.factory('sse', [ '$rootScope', function($rootScope) {
-
-        var model;
-
-        // handles the callback from the received event
-        var handleCallback = function (msg) {
-            $rootScope.$apply(function () {
-                console.log('model before: ', model);
-                console.log('msg.data: ', msg.data);
-                var update = JSON.parse(msg.data);
-                model = update;
-                console.log('model after:', model);
-            });
-        };
-
-        return function(url, modelToUpdate) {
-            model = modelToUpdate;
-            var source = new EventSource(url);
-            source.addEventListener('message', handleCallback, false);
-
-        }
-
-    }]);
-});
+angular.module('maltabar', [])
+.factory('sse', [function() {
+	var source;
+	if(typeof(EventSource)!=='undefined') {
+		source = new EventSource('/api/v1/stream');
+		return {
+			on: function(event, cb) {
+				source.addEventListener(event, cb, false);
+			}
+		};
+	}
+	return { on: angular.noop };
+}]);
