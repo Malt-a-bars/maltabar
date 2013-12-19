@@ -1,4 +1,4 @@
-from LJTemp import ljtemp, probes
+from ljtemp import ljtemp, probes
 
 
 class Brewery:

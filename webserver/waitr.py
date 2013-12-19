@@ -37,6 +37,7 @@ class BreweryApp(flask.Flask):
         self.route(API+"/stream")(self.stream)
         self.route(API+"/stream/update")(self.stream_update)
         self.route('/ui/<path:path>')(self.static_from_root)
+	self.route('/')(self.redirect_to_ui)
 
     def all_probes(self):
         probes = self.brewery.temperatures()
@@ -69,6 +70,9 @@ class BreweryApp(flask.Flask):
     def static_from_root(self, path):
         print "path: {0}".format(path)
         return flask.send_from_directory('../ui/dist', path)
+
+    def redirect_to_ui(self):
+        return flask.redirect('/ui/index.html')
 
 
 app = BreweryApp(__name__)

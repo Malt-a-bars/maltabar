@@ -1,6 +1,6 @@
-[submodule "LJTemp"]
-	path = LJTemp
-	url = git@github.com:Malt-a-bars/LJTemp.git
+[submodule "ljtemp"]
+	path = ljtemp
+	url = git@github.com:Malt-a-bars/ljtemp.git
 [submodule "LabJackPython"]
 	path = LabJackPython
 	url = https://github.com/labjack/LabJackPython.git

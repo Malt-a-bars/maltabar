@@ -1,4 +1,4 @@
-from LJTemp import probes
+from ljtemp import probes
 import random
 
 

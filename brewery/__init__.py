@@ -1,1 +1,1 @@
-all = ['brewery']
+all = ['brewery', 'devices']
