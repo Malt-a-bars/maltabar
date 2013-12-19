@@ -9,6 +9,9 @@ class Brewery:
         probe = probes.TemperatureProbe(name='R0', kind='RTD', model='pt1000',
                                         plus_input='AIN0', minus_input='GND')
         self._probes.append(probe)
+        probe = probes.TemperatureProbe(name='R1', kind='RTD', model='pt1000',
+                                        plus_input='AIN0', minus_input='GND')
+        self._probes.append(probe)
 
     def temperatures(self):
         """ Return all temperatures
@@ -26,5 +29,5 @@ class Brewery:
 
     def temperature_of_probe(self, probe):
         """ Return random temperatures """
-        probe._mock_temp += random.random() - 0.5
+        probe._mock_temp += random.random()  * 5- 2.5
         return probe._mock_temp

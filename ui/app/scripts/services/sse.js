@@ -1,19 +1,16 @@
-// // define the module we're working with
-// var app = angular.module('sse', []);
+// jshint indent:2
+n'use strict';
 
-// // define the ctrl
-// function statCtrl($scope) {
-
-//     // the last received msg
-//     $scope.msg = {};
-
-//     // handles the callback from the received event
-//     var handleCallback = function (msg) {
-//         $scope.$apply(function () {
-//             $scope.msg = JSON.parse(msg.data)
-//         });
-//     }
-
-//     var source = new EventSource('/stats');
-//     source.addEventListener('message', handleCallback, false);
-// }
+angular.module('maltabar', [])
+.factory('sse', [function() {
+	var source;
+	if(typeof(EventSource)!=='undefined') {
+		source = new EventSource('/api/v1/stream');
+		return {
+			on: function(event, cb) {
+				source.addEventListener(event, cb, false);
+			}
+		};
+	}
+	return { on: angular.noop };
+}]);

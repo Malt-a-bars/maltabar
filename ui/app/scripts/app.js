@@ -1,13 +1,14 @@
+// jshint indent:4
 'use strict';
 
-angular.module('uiApp', [])
-  .config(function ($routeProvider) {
+angular.module('uiApp', ['wijmo', 'maltabar'])
+.config(function($routeProvider) {
     $routeProvider
-      .when('/', {
+    .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
-      })
-      .otherwise({
+    })
+    .otherwise({
         redirectTo: '/'
-      });
-  });
+    });
+});

@@ -1,12 +1,8 @@
-
-<p>Probes:</p>
+<p>My Probes:</p>
 <ul>
-    <li ng-repeat="probe in probes">
+    <li ng-repeat="probe in model.temperatures">
         <p>Name: {{probe.name}}, temperature: {{probe.temperature | number:1}}</p>
+        <wij-radialgauge value="{{probe.temperature}}" min="0" max="100" animation="disabled" start-angle="-60" sweep-angle="300">
+        </wij-radialgauge>
     </li>
 </ul>
-
-<div>
-    <high-chart value='example_chart' type="area" height="400">
-    </high-chart>
-</div>
