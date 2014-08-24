@@ -1,5 +1,5 @@
 // jshint indent:2
-n'use strict';
+'use strict';
 
 angular.module('maltabar', [])
 .factory('sse', [function() {
