@@ -4,3 +4,4 @@
 [submodule "LabJackPython"]
 	path = LabJackPython
 	url = https://github.com/labjack/LabJackPython.git
+	branch = master
