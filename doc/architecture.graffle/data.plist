@@ -53,42 +53,113 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{150, 286}, {168, 86}}</string>
+			<string>{{33, 36.5}, {496, 31}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
+			<key>FitText</key>
+			<string>Vertical</string>
+			<key>Flow</key>
+			<string>Resize</string>
 			<key>ID</key>
-			<integer>20</integer>
+			<integer>23</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
 			<key>Text</key>
 			<dict>
-				<key>Align</key>
+				<key>Pad</key>
 				<integer>0</integer>
 				<key>Text</key>
 				<string>{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
-\cocoascreenfonts1{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fmodern\fcharset0 Courier;}
+\cocoascreenfonts1{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
-\deftab720
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc
 
-\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
-\clvertalc \clshdrawnil \clwWidth16560\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt40 \clpadl40 \clpadb40 \clpadr40 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720
-
-\f0\b\fs20 \cf0 add_probe
-\b0 (self, probe)\
-
-\b connect
-\b0 (self)\
-
-\b disconnect
-\b0 (self)\
-
-\b temperature_of_probe
-\b0 (self, probe)\
-\pard\intbl\itap1\pardeftab720
-
-\f1\fs14 \cf0 \cell \lastrow\row
-}</string>
+\f0\fs52 \cf0 Maltabar brewery - architecture}</string>
+				<key>VerticalPad</key>
+				<integer>0</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>Bounds</key>
+			<string>{{618, 8}, {182, 88}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>ID</key>
+			<integer>22</integer>
+			<key>ImageID</key>
+			<integer>1</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>shadow</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+				<key>stroke</key>
+				<dict>
+					<key>Draws</key>
+					<string>NO</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Class</key>
+			<string>LineGraphic</string>
+			<key>Head</key>
+			<dict>
+				<key>ID</key>
+				<integer>10</integer>
+			</dict>
+			<key>ID</key>
+			<integer>21</integer>
+			<key>Points</key>
+			<array>
+				<string>{250.5465908461764, 289.65376375103335}</string>
+				<string>{240.45340915382357, 236.49122526263855}</string>
+			</array>
+			<key>Style</key>
+			<dict>
+				<key>stroke</key>
+				<dict>
+					<key>HeadArrow</key>
+					<string>FilledArrow</string>
+					<key>Legacy</key>
+					<true/>
+					<key>LineType</key>
+					<integer>1</integer>
+					<key>TailArrow</key>
+					<string>0</string>
+				</dict>
+			</dict>
+			<key>Tail</key>
+			<dict>
+				<key>ID</key>
+				<integer>7</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -103,8 +174,8 @@
 			<integer>19</integer>
 			<key>Points</key>
 			<array>
-				<string>{665.51657538859911, 261.49163201730454}</string>
-				<string>{621.4821927715227, 249.86200509499545}</string>
+				<string>{649.51701206241557, 350.28986643683476}</string>
+				<string>{605.48298793758454, 338.50011159050905}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -138,8 +209,8 @@
 			<integer>18</integer>
 			<key>Points</key>
 			<array>
-				<string>{665.53235527768754, 197.48718070888773}</string>
-				<string>{621.46903509765514, 214.159330173347}</string>
+				<string>{649.53185524772243, 286.30770753051576}</string>
+				<string>{605.46814475227757, 302.83728148315612}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -173,8 +244,8 @@
 			<integer>17</integer>
 			<key>Points</key>
 			<array>
-				<string>{515.64291256446631, 202.87821890259877}</string>
-				<string>{455.41979192586803, 164.88765737246902}</string>
+				<string>{500.01423708634559, 291.87679725140089}</string>
+				<string>{439.42198718594352, 253.36770782390715}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -210,8 +281,8 @@
 			<integer>16</integer>
 			<key>Points</key>
 			<array>
-				<string>{510.50000032682334, 234.70741581729078}</string>
-				<string>{455.499998130444, 234.76928022010824}</string>
+				<string>{494.5, 323.64500619657849}</string>
+				<string>{439.5, 323.64500619657849}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -245,8 +316,8 @@
 			<integer>15</integer>
 			<key>Points</key>
 			<array>
-				<string>{227.50005230055095, 235.30317646772875}</string>
-				<string>{195.49989801002275, 235.76608029832292}</string>
+				<string>{211.5, 323.64500158235751}</string>
+				<string>{179.5, 323.64500158235751}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -280,8 +351,8 @@
 			<integer>14</integer>
 			<key>Points</key>
 			<array>
-				<string>{364.50000495311622, 234.84745186139108}</string>
-				<string>{318.49997999271562, 235.05213970891811}</string>
+				<string>{348.5, 323.64500045850673}</string>
+				<string>{302.5, 323.64500045850673}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -315,8 +386,8 @@
 			<integer>13</integer>
 			<key>Points</key>
 			<array>
-				<string>{364.59311751919569, 202.21521757185783}</string>
-				<string>{318.40137971032317, 169.22489941303675}</string>
+				<string>{349.35686904564614, 289.84316645741495}</string>
+				<string>{278.64313095435381, 236.30182255625692}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -350,8 +421,8 @@
 			<integer>12</integer>
 			<key>Points</key>
 			<array>
-				<string>{364.50002275872708, 135.93422316038829}</string>
-				<string>{318.49990795243474, 136.37321931907854}</string>
+				<string>{348.50466059708032, 218.24439083209853}</string>
+				<string>{279.49533940291968, 208.75560916790147}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -377,7 +448,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{228, 102}, {90, 67}}</string>
+			<string>{{189, 169}, {90, 67}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -398,7 +469,7 @@ object}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{365, 102}, {90, 67}}</string>
+			<string>{{349, 191}, {90, 67}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -427,7 +498,7 @@ test controller}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{85, 201.14498901367188}, {110, 67}}</string>
+			<string>{{69, 290.14498901367188}, {110, 67}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -448,7 +519,7 @@ driver}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{228, 201.14498901367188}, {90, 67}}</string>
+			<string>{{212, 290.14498901367188}, {90, 67}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -456,7 +527,7 @@ driver}</string>
 			<key>Link</key>
 			<dict>
 				<key>url</key>
-				<string>http://htmlpreview.github.io/?https://github.com/Malt-a-bars/ljtemp/blob/master/src/ljtemp.html</string>
+				<string>https://github.com/Malt-a-bars/LJTemp</string>
 			</dict>
 			<key>Shape</key>
 			<string>Rectangle</string>
@@ -474,7 +545,7 @@ interface}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{666, 247.64498901367188}, {110, 57}}</string>
+			<string>{{650, 336.64498901367188}, {110, 57}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -495,7 +566,7 @@ view}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{666, 148}, {110, 57}}</string>
+			<string>{{650, 237}, {110, 57}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -516,11 +587,16 @@ view}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{365, 201.14498901367188}, {90, 67}}</string>
+			<string>{{349, 290.14498901367188}, {90, 67}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
 			<integer>4</integer>
+			<key>Link</key>
+			<dict>
+				<key>url</key>
+				<string>https://github.com/Malt-a-bars/maltabar/tree/master/brewery</string>
+			</dict>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Text</key>
@@ -537,7 +613,7 @@ controller}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{511, 203.14498901367188}, {110, 63}}</string>
+			<string>{{495, 292.14498901367188}, {110, 63}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -566,7 +642,15 @@ webservice}</string>
 	<key>HPages</key>
 	<integer>1</integer>
 	<key>ImageCounter</key>
-	<integer>1</integer>
+	<integer>2</integer>
+	<key>ImageLinkBack</key>
+	<array>
+		<dict/>
+	</array>
+	<key>ImageList</key>
+	<array>
+		<string>image1.tiff</string>
+	</array>
 	<key>KeepToScale</key>
 	<false/>
 	<key>Layers</key>
@@ -604,7 +688,7 @@ webservice}</string>
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-08-24 10:35:37 +0000</string>
+	<string>2014-08-24 11:04:14 +0000</string>
 	<key>Modifier</key>
 	<string>Sam Grimee</string>
 	<key>NotesVisible</key>
