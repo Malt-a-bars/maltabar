@@ -3,5 +3,5 @@
 	url = git@github.com:Malt-a-bars/ljtemp.git
 [submodule "LabJackPython"]
 	path = LabJackPython
-	url = https://github.com/labjack/LabJackPython.git
+	url = git@github.com:labjack/LabJackPython.git
 	branch = master

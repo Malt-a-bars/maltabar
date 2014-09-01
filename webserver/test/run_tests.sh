@@ -1,2 +1,2 @@
 export PYTHONPATH=../src:$PYTHONPATH
-python -m unittest test_waitr
+python -m unittest -v test_ljtemp
