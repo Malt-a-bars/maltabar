@@ -1,1 +1,1 @@
-all = ['brewery', 'devices']
+__all__ = ['brewery', 'devices']
