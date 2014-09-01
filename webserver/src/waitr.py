@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 waitr.py
 Webserver for the maltabar brewery
@@ -75,7 +76,7 @@ class BreweryApp(flask.Flask):
 
     def static_from_root(self, path):
         print "path: {0}".format(path)
-        return flask.send_from_directory('../ui/dist', path)
+        return flask.send_from_directory('../../ui/dist', path)
 
     def redirect_to_ui(self):
         return flask.redirect('/ui/index.html')
