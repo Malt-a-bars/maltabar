@@ -8,7 +8,8 @@ Sam Grimee
 Drink responsibly.
 """
 
-from brewery import mock_brewery as brewery
+#import mock_brewery as brewery
+import brewery
 
 import redis
 import flask
@@ -34,15 +35,28 @@ class BreweryApp(flask.Flask):
         # Initialise brewery
         self.brewery = brewery.Brewery()
 
+        # configure all routes
         self.route(API+"/probes")(self.all_probes)
+
+        self.route(API+"/is_heating")(self.is_heating)
+        self.route(API+"/heater/<value>")(self.set_heater)
+
         self.route(API+"/stream")(self.stream)
         self.route(API+"/stream/update")(self.stream_update)
         self.route('/ui/<path:path>')(self.static_from_root)
-	self.route('/')(self.redirect_to_ui)
+        self.route('/')(self.redirect_to_ui)
 
     def all_probes(self):
         probes = self.brewery.temperatures()
         return flask.jsonify(probes=probes)
+
+    def is_heating(self):
+        value = self.brewery.is_heating()
+        return flask.jsonify(value=value)
+
+    def set_heater(self, value):
+        self.brewery.heat(value)
+        return 'heater value set to {}'.format(value)
 
     def make_json_error(self, ex):
             """ Handler that returns errors as json objects """
