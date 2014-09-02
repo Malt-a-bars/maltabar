@@ -12,7 +12,7 @@ class Brewery:
         probe = ljtemp.probes.TemperatureProbe(name='R0', kind='RTD', model='pt1000',
                                         plus_input='AIN0', minus_input='GND')
         self.ljt.add_probe(probe)
-        self.heater = devices.ZWaveBinarySwitch(name='heater', device_id=2, state='off')
+        self.heater = devices.ZWaveBinarySwitch(name='heater', device_id=2)
 
     def heat(self, value):
         self.heater.set(value)
