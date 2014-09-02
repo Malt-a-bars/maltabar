@@ -1,3 +1,5 @@
+/*global $:false */
+/*global Highcharts:false */
 // jshint indent:4
 'use strict';
 

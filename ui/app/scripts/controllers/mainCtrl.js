@@ -6,6 +6,42 @@ angular.module('uiApp')
 	function($scope, $http, $log, sse) {
 		$scope.model = {};
 		$scope.model.temperatures = [];
+		$scope.model.heating = false;
+
+		// Heater
+
+		$http.get('/api/v1/is_heating')
+		.success(function(res) {
+			$scope.model.heating = res.value;
+			$log.log('is_heating: ', $scope.model.heating);
+		});
+
+		$scope.heaterOn = function() {
+			$http.get('/api/v1/heater/on')
+			.success(function(res) {
+				$scope.model.heating = true;
+				$log.log('setting heater on');
+			});
+		};
+
+		$scope.heaterOff = function() {
+			$http.get('/api/v1/heater/off')
+			.success(function(res) {
+				$scope.model.heating = false;
+				$log.log('setting heater off');
+			});
+		};
+
+		$scope.toggleHeater = function() {
+			if ($scope.model.heating) {
+				$scope.heaterOff();
+			} else {
+				$scope.heaterOn();
+			}
+		};
+
+
+		// Temperature probes
 
 		$http.get('/api/v1/probes')
 		.success(function(res) {

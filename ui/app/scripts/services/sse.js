@@ -1,3 +1,4 @@
+/*global EventSource:false */
 // jshint indent:2
 'use strict';
 
