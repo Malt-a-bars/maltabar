@@ -10,7 +10,6 @@ Drink responsibly.
 
 #import mock_brewery as brewery
 import brewery
-
 import redis
 import flask
 import json
@@ -100,4 +99,5 @@ app = BreweryApp(__name__)
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host='0.0.0.0', threaded=True)
+    # reloader causes labjack connection issues
+    app.run(host='0.0.0.0', use_reloader=False, threaded=True)
