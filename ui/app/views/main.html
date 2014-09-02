@@ -1,5 +1,5 @@
 <h1>Maltabar brewery</h1>
-<img src="http://www.beer100.com/images/beermug.jpg">
+<img src="http://www.beer100.com/images/beermug.jpg" width=100 >
 
 <h2>Heater control</h2>
 <button ng_click="heaterOn()">On</button>
@@ -9,6 +9,7 @@ Heating: <div class="checkbox" ng_click="toggleHeater()">
 </div>
 
 <h2>Temperature probes</h2>
+<button ng_click="refreshTemps()">Refresh</button>
 <ul>
     <li ng-repeat="probe in model.temperatures">
         <p>Name: {{probe.name}}, temperature: {{probe.temperature | number:1}}</p>

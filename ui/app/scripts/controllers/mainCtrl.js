@@ -43,11 +43,16 @@ angular.module('uiApp')
 
 		// Temperature probes
 
-		$http.get('/api/v1/probes')
-		.success(function(res) {
-			$scope.model.temperatures = res.probes;
-			$log.log('forced load temperatures: ', $scope.model.temperatures);
-		});
+		$scope.refreshTemps = function() {
+			$http.get('/api/v1/probes')
+			.success(function(res) {
+				$scope.model.temperatures = res.probes;
+				$log.log('forced load temperatures: ', $scope.model.temperatures);
+			});
+		}
+
+		$scope.refreshTemps()
+
 
 		sse.on('message', function(msg) {
 			var data = JSON.parse(msg.data);
