@@ -30,18 +30,17 @@ class ZWaveBinarySwitch:
         self._name = name
         self._zw = zwave.ZWave()
         self._device_id = device_id
-
+        # initialize self._state
         if state == '':
-            self._state = self.zw.get_state(device_id)
+            self.state()
         else:
-            self._zw.set_state(device_id, state)
-            self._state = state
+            self.set(state)
 
     def state(self):
         # TODO: get this from zwave
-        value = self._state
-        print "ZwaveBinarySwitch: Returning state {} for switch {}".format(value, self._name)
-        return value
+        self._state = self._zw.get_state(device_id)
+        print "ZwaveBinarySwitch: Returning state {} for switch {}".format(self._state, self._name)
+        return self._state
 
     def is_on(self):
         value = (self.state() == 'on')
