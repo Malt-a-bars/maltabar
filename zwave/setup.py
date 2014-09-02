@@ -26,9 +26,9 @@ CLASSIFIERS = [
     'Topic :: System :: Hardware'
     ]
 
-setup(name='brewery',
+setup(name='zwave',
       version='2014-08-21',
-      description='The python brewery.',
+      description='Zwave control via zwave-me r-pi module.',
       license='MIT X11',
       url='https://github.com/Malt-a-bars/brewery',
       author='Sam Grimee',
@@ -36,6 +36,6 @@ setup(name='brewery',
       maintainer='Sam Grimee',
       maintainer_email='',
       classifiers=CLASSIFIERS,
-      package_dir = {'brewery': 'src'},
-      packages=['brewery']
+      package_dir = {'zwave': 'src'},
+      packages=['zwave']
       )
