@@ -37,8 +37,8 @@ class ZWaveBinarySwitch:
             self.set(state)
 
     def state(self):
-        # TODO: get this from zwave
-        self._state = self._zw.get_state(device_id)
+        """ Refresh state from zwave and return it """
+        self._state = self._zw.get_state(self._device_id)
         print "ZwaveBinarySwitch: Returning state {} for switch {}".format(self._state, self._name)
         return self._state
 
