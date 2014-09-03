@@ -16,7 +16,12 @@ API
 
 prefix: /api/v1
 
-GET  /probes - get the values of all probes
+GET  /heater/on  - turn heater on
+GET  /heater/off - turn heater off
+GET  /is_heating - returns a boolean indicating is the heater is turned on
+
+GET  /probes - returns an array with all probes
+
 GET  /stream - get an event stream with temperatures updates
 GET  /stream/update - trigger the publication of a new temperature to the stream
 
